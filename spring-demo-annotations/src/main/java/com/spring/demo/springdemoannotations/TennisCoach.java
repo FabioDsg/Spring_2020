@@ -1,24 +1,35 @@
 package com.spring.demo.springdemoannotations;
 
+import java.lang.reflect.Method;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
 
+    @Autowired
     private FortuneService fortuneService;
 
-    @Autowired
-    public void setFortuneService(FortuneService fortuneService) {
-        this.fortuneService = fortuneService;
-    }
+public TennisCoach() {
+    
+    System.out.println(">> TenisCoach: Inside default constructor");
 
-    /*
-    @Autowired
-    public TennisCoach(FortuneService fortuneService) {
-        this.fortuneService = fortuneService;
-    }
-    */
+}
+
+// Define a setter method
+    // @Autowired
+    // public void doSomeCrazyStuff(FortuneService fortuneService) {
+    //     System.out.println(">> TenisCoach: Inside doSomeCrazyStuff() method");
+    //     this.fortuneService = fortuneService;
+    // }
+
+    
+    // @Autowired
+    // public TennisCoach(FortuneService fortuneService) {
+    //     this.fortuneService = fortuneService;
+    // }
+    
     
     @Override
     public String getDailyWorkout() {
