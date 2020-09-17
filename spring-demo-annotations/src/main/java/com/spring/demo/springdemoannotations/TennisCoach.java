@@ -3,12 +3,14 @@ package com.spring.demo.springdemoannotations;
 import java.lang.reflect.Method;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
 
     @Autowired
+    @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
 
 public TennisCoach() {
