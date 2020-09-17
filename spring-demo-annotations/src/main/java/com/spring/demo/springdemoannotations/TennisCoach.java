@@ -2,6 +2,9 @@ package com.spring.demo.springdemoannotations;
 
 import java.lang.reflect.Method;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -13,10 +16,23 @@ public class TennisCoach implements Coach {
     @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
 
+// Define a default constructor    
 public TennisCoach() {
     
     System.out.println(">> TenisCoach: Inside default constructor");
 
+}
+
+// Define my init method
+@PostConstruct
+public void doMyStartupStuff() {
+    System.out.println(">> TennisCoach: Inside of doMyStartupStuff()");
+}
+
+// Define my destroy method
+@PreDestroy
+public void doMyCleanupStuff() {
+    System.out.println(">> TennisCoach: Inside of doMyCleanupStuff()");
 }
 
 // Define a setter method
