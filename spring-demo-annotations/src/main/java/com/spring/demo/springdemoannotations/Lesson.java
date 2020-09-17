@@ -10,5 +10,11 @@ public class Lesson implements Coach {
         
         return "Let's have some rest!";
     }
+
+    @Override
+    public String getDailyFortune() {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }
