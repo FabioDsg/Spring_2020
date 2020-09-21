@@ -3,9 +3,11 @@ package com.spring.demo.springdemoannotations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 // @ComponentScan("com.spring.demo")
+@PropertySource("classpath:sport.properties") // Load property file
 public class SportConfig {
     
     // Define bean for our sad fortune service
