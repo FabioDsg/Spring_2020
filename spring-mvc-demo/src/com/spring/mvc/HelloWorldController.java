@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloWorldController {
@@ -41,5 +43,22 @@ public class HelloWorldController {
 		
 		return "helloworld";
 	}
+	
+	// Using bind to get parameters from HTML
+		@RequestMapping("/processFormVersionThree")
+		public String processFormVersionThree(@RequestParam("studentName") String theName, 
+				Model model) {
+				
+			// Convert the data to all caps
+			theName = theName.toUpperCase();
+			
+			// Create the message
+			String result = "Hey my friend from v3! " + theName;
+			
+			// Add message to the model
+			model.addAttribute("message", result);
+			
+			return "helloworld";
+		}
 	
 }
