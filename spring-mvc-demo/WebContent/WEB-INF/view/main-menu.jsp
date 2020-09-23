@@ -1,9 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+
+	<link rel="stylesheet" type="text/css" 
+		  href="${pageContext.request.contextPath}/resources/css/style.css">
+
+    <script src="${pageContext.request.contextPath}/resources/js/simple-test.js"></script>
+    
 <title>Spring MVC</title>
 </head>
 <body>
@@ -13,5 +16,13 @@
 	
 	<a href="showForm">Hello World Form</a>
 	
+	<br><br>
+	
+	<img src="${pageContext.request.contextPath}/resources/images/spring-logo.png" />
+	
+	<br><br>
+
+	<input type="button" onclick="doSomeWork()" value="Click Me"/>
+
 </body>
 </html>

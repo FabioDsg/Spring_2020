@@ -23,7 +23,10 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
+	
+	<!-- Declare what is the resources path -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
 </beans>
 
 
