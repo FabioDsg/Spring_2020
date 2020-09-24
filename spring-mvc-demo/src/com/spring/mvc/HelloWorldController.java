@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/hello") //This line fix ambiguous calling showForm on two controllers: HelloWorldController and SillyController
 public class HelloWorldController {
 
 	// Need controller method to show the initial HTML form
