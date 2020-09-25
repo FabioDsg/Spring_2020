@@ -1,10 +1,12 @@
 package com.spring.mvc;
 
+import java.util.LinkedHashMap;
+
 public class Student {
 
 	private String firstName;
 	private String lastName;
-	
+		
 	public Student() {
 		
 	}
@@ -24,6 +26,5 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	
+			
 }
