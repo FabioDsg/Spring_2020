@@ -20,7 +20,7 @@ public class Customer {
 	@Max(value = 10, message = "Must be less than or equal 10")
 	private Integer freePasses;
 	
-	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Olny 5 char/digits")
+	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Only 5 char/digits")
 	private String postalCode;
 
 	public String getFirstName() {
