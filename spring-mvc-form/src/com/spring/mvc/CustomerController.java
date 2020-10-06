@@ -23,7 +23,7 @@ public class CustomerController {
 		
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		
-		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);	
 	}
 	
 	@RequestMapping("/showForm")
