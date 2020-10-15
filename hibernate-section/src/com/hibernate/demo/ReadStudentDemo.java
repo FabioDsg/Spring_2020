@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.hibernate.demo.entity.Student;
 
-public class CreateStudentDemo {
+public class ReadStudentDemo {
 
 	public static void main(String[] args) {
 		
@@ -25,21 +25,39 @@ public class CreateStudentDemo {
 			
 			// Create a student object
 			System.out.println("Creating a new student object");
-			//Student tempStudent = new Student("Jonh", "Doe", "doe@mail.com");
-			
-			Student Student2 = new Student("Paul", "Sarakov", "sarakov@mail.com");
-			
+			Student tempStudent = new Student("Roy", "Duck", "roy@mail.com");
+	
 			// Start a transaction 
 			session.beginTransaction();
 			
 			// Save the student object 
 			System.out.println("Saving the student...");
-			session.save(Student2);
+			System.out.println(tempStudent);
+			session.save(tempStudent);
 			
 			// commit transaction
 			session.getTransaction().commit();
 			
+			// ** NEW CODE Below **
+			
+			// Find out the student's id: primary key
+			System.out.println("Saved student. Genarated id: " + tempStudent.getId());
 			System.out.println("Done!");
+			
+			// Now get a new session and start transaction
+			session = factory.getCurrentSession();
+			session.beginTransaction();
+			
+			// Retrieve based on the id: primary key
+			System.out.println("\nGetting student with id: " + tempStudent.getId());
+			
+			Student myStudent = session.get(Student.class, tempStudent.getId());
+			
+			System.out.println("Get complete: " + myStudent);
+			
+			// Commit transaction
+			session.getTransaction().commit();
+			
 			
 		} finally {
 			
