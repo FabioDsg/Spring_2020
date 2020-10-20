@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.hibernate.demo.entity.Student;
 
-public class UpdateStudentDemo {
+public class DeleteStudentDemo {
 
 	public static void main(String[] args) {
 		
@@ -33,19 +33,23 @@ public class UpdateStudentDemo {
 			
 			Student myStudent = session.get(Student.class, studentId);
 			
-			// Delete the student
-			//System.out.println("Deleting student: " + myStudent);
-			//session.delete(myStudent);
+			System.out.println("Updating student... ");
+			myStudent.setFirstName("McCartney");
 			
-			// Delete the student id=2 using hql
-			System.out.println("Deleting student id=2");
-			
-			session.createQuery("delete from Student where id=2").executeUpdate();
-	
 			// Commit transaction
 			session.getTransaction().commit();
 			
-			System.out.println("Done!");
+			// New Code
+			session = factory.getCurrentSession();
+			session.beginTransaction();
+			
+			// Update email for all students
+			System.out.println("Updating email for all students... ");
+			
+			session.createQuery("update Student set email='foo@mail.com'").executeUpdate();
+			
+			// Commit transaction
+			session.getTransaction().commit();
 			
 		} finally {
 			
