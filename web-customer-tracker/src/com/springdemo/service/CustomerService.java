@@ -1,10 +1,10 @@
-package com.springdemo.dao;
+package com.springdemo.service;
 
 import java.util.List;
 
 import com.springdemo.entity.Customer;
 
-public interface CustomerDAO {
+public interface CustomerService {
 
 	public List<Customer> getCustomers();
 
@@ -15,5 +15,6 @@ public interface CustomerDAO {
 	public void deleteCustomer(int theId);
 
 	public List<Customer> searchCustomers(String theSearchName);
+	
 	
 }
