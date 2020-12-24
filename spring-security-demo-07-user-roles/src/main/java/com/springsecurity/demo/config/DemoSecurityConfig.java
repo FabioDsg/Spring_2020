@@ -21,16 +21,27 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		auth.inMemoryAuthentication()
 			.withUser(users.username("Jonh").password("test123").roles("EMPLOYEE"))
-			.withUser(users.username("Anna").password("test123").roles("MANAGER"))
-			.withUser(users.username("Paul").password("test123").roles("ADMIN"));
+			.withUser(users.username("Anna").password("test123").roles("EMPLOYEE", "MANAGER"))
+			.withUser(users.username("Paul").password("test123").roles("EMPLOYEE", "ADMIN"));
 		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/css/**").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/showMyLoginPage")
-				.loginProcessingUrl("/authenticateTheUser").permitAll().and().logout().permitAll();
+		http.authorizeRequests()	
+		.antMatchers("/").hasRole("EMPLOYEE")
+		.antMatchers("/leaders/**").hasRole("MANAGER")
+		.antMatchers("/systems/**").hasRole("ADMIN")
+		.antMatchers("/css/**").permitAll().anyRequest().authenticated()
+		.and()
+		.formLogin().loginPage("/showMyLoginPage")
+		.loginProcessingUrl("/authenticateTheUser")
+		.permitAll()
+		.and()
+		.logout().permitAll()
+		.and()
+		.exceptionHandling().accessDeniedPage("/access-denied");
 
 	}
 	
