@@ -18,7 +18,7 @@ public class StudentRestController {
 	
 	private List<Student> theStudents;
 
-	// define @PostConstruct to load the student data ... only once!
+	// Define @PostConstruct to load the student data ... only once!
 	
 	@PostConstruct
 	public void loadData() {
@@ -47,7 +47,7 @@ public class StudentRestController {
 		
 	// Just index into the list ... keep it simple for now
 				
-	// check the studentId against list size
+	// Check the studentId against list size
 		
 		if ( (studentId >= theStudents.size()) || (studentId < 0) ) {
 			throw new StudentNotFoundException("Student id not found - " + studentId);
